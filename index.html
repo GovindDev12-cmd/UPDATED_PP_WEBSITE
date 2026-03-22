@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Govind Ojj is a teen developer from India building futuristic web experiences, Python automations, and AI-powered solutions.">
+  <meta name="theme-color" id="theme-color-meta" content="#050816">
+  <meta property="og:title" content="Govind Ojj | Teen Developer Portfolio">
+  <meta property="og:description" content="Futuristic personal portfolio featuring real projects, full blog articles, and polished frontend work by Govind Ojj.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/govind-ojj.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Govind Ojj | Teen Developer Portfolio">
+  <meta name="twitter:description" content="Frontend projects, Python tools, AI workflow experiments, and a premium Gen-Z portfolio experience.">
+  <meta name="twitter:image" content="images/govind-ojj.jpg">
+  <title>Govind Ojj | Teen Developer Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true">
+    <span id="scroll-progress-bar"></span>
+  </div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="container nav-shell glass-card">
+      <a class="brand-mark" href="#hero" aria-label="Govind Ojj home">
+        <span class="brand-orb"></span>
+        <span class="brand-text">Govind Ojj</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about" data-nav-link>About</a>
+        <a href="#projects" data-nav-link>Projects</a>
+        <a href="#blogs" data-nav-link>Blogs</a>
+        <a href="#pricing" data-nav-link>Pricing</a>
+        <a href="#contact" data-nav-link>Contact</a>
+      </nav>
+
+      <label class="theme-toggle" aria-label="Toggle color theme">
+        <input type="checkbox" id="theme-toggle">
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+        </span>
+        <span class="toggle-text" id="theme-label">Dark mode</span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="hero" class="hero section" data-section>
+      <div class="container hero-grid">
+        <div class="hero-copy-block" data-reveal>
+          <span class="eyebrow">Teen developer building premium web experiences and smart automation</span>
+          <h1>Govind Ojj</h1>
+          <p class="hero-role">
+            <span id="typing-text">Teen Developer</span>
+            <span class="typing-cursor" aria-hidden="true"></span>
+          </p>
+          <p class="hero-summary">
+            I design and develop polished websites, Python tools, and AI-powered workflows with a sharp coder aesthetic, strong fundamentals, and student-friendly pricing.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Let's Work</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-pill glass-card">
+              <strong>5+ Years</strong>
+              <span>Programming journey</span>
+            </div>
+            <div class="highlight-pill glass-card">
+              <strong>Web + Python</strong>
+              <span>Frontend and automation</span>
+            </div>
+            <div class="highlight-pill glass-card">
+              <strong>AI Workflow Ready</strong>
+              <span>Prompting, tools, systems</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="hero-ring hero-ring-one"></div>
+          <div class="hero-ring hero-ring-two"></div>
+
+          <article class="avatar-card glass-card tilt-card">
+            <div class="status-chip">Available for freelance work</div>
+            <div class="avatar-frame">
+              <img src="images/govind-ojj.jpg" alt="Govind Ojj portrait">
+            </div>
+            <div class="avatar-copy">
+              <p class="card-label">Frontend, Python, AI</p>
+              <h2>Govind Ojj</h2>
+              <p>Clean builds, strong logic, and futuristic interfaces with a coder-first mindset.</p>
+            </div>
+          </article>
+
+          <article class="code-panel glass-card tilt-card">
+            <div class="code-header">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="code-body">
+              <p><span class="code-key">const</span> <span class="code-name">developer</span> = {</p>
+              <p class="code-indent"><span class="code-prop">name</span>: <span class="code-string">'Govind Ojj'</span>,</p>
+              <p class="code-indent"><span class="code-prop">focus</span>: <span class="code-string">'Web + Python + AI'</span>,</p>
+              <p class="code-indent"><span class="code-prop">vibe</span>: <span class="code-string">'futuristic, clean, reliable'</span>,</p>
+              <p class="code-indent"><span class="code-prop">shipping</span>: <span class="code-string">'real-world projects'</span></p>
+              <p>};</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" data-section>
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">About</span>
+          <h2>Developer mindset with a builder's discipline.</h2>
+          <p>I combine long-term curiosity with hands-on execution, which helps me move from idea to polished result quickly.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-story glass-card" data-reveal>
+            <p>
+              I am Govind Ojj, a passionate Class 10 student from India with over 5 years of programming experience. I have spent 4 years mastering web development using HTML, CSS, and JavaScript, along with 1 year of strong experience in Python.
+            </p>
+            <p>
+              I also have practical experience in AI tools, prompt engineering, and automation, allowing me to work efficiently like an AI engineer.
+            </p>
+            <p>
+              Programming is not just my skill, it is my passion and side hustle. I have built multiple real-world projects and continuously improve my skills every day.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <strong>5+</strong>
+                <span>Years coding</span>
+              </div>
+              <div class="stat-card">
+                <strong>4</strong>
+                <span>Years in web development</span>
+              </div>
+              <div class="stat-card">
+                <strong>1</strong>
+                <span>Year in Python workflows</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="skills-panel glass-card" data-reveal>
+            <div class="skills-topline">
+              <span class="section-tag">Skills</span>
+              <p>Tools and stacks I use to ship practical, high-impact work.</p>
+            </div>
+
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <div class="skill-meta">
+                  <span>HTML / CSS / JavaScript</span>
+                  <span>92%</span>
+                </div>
+                <div class="skill-track"><span style="width: 92%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-meta">
+                  <span>Python</span>
+                  <span>83%</span>
+                </div>
+                <div class="skill-track"><span style="width: 83%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-meta">
+                  <span>AI Tools & Prompt Engineering</span>
+                  <span>88%</span>
+                </div>
+                <div class="skill-track"><span style="width: 88%"></span></div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-meta">
+                  <span>Automation & Workflow Design</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-track"><span style="width: 80%"></span></div>
+              </div>
+            </div>
+
+            <div class="skill-pills">
+              <span>Responsive UI</span>
+              <span>Glassmorphism</span>
+              <span>Frontend Animation</span>
+              <span>Prompt Design</span>
+              <span>Automation Logic</span>
+              <span>Landing Pages</span>
+              <span>Personal Branding</span>
+              <span>Problem Solving</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section" data-section>
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Projects</span>
+          <h2 class="section-title">My Projects</h2>
+          <p>These featured builds show clean frontend work, practical utilities, and student-focused product thinking. Open any project to launch the working demo.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card glass-card tilt-card" data-reveal>
+            <div class="project-image">
+              <img src="images/project1.jpg" alt="Portfolio Website" loading="lazy" decoding="async">
+            </div>
+            <div class="project-copy">
+              <span class="project-label">Frontend Showcase</span>
+              <h3>Portfolio Website</h3>
+              <p>A modern personal portfolio with dark mode, animations, and responsive design.</p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <a class="card-link" href="projects/portfolio-demo.html" target="_blank" rel="noopener">Open Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card glass-card tilt-card" data-reveal>
+            <div class="project-image">
+              <img src="images/project2.jpg" alt="AI Chat UI" loading="lazy" decoding="async">
+            </div>
+            <div class="project-copy">
+              <span class="project-label">AI Interface</span>
+              <h3>AI Chat UI</h3>
+              <p>A futuristic chat interface inspired by AI tools with clean UI and smooth UX.</p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <a class="card-link" href="projects/ai-chat-ui.html" target="_blank" rel="noopener">Open Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card glass-card tilt-card" data-reveal>
+            <div class="project-image">
+              <img src="images/project3.jpg" alt="Python Automation Tool" loading="lazy" decoding="async">
+            </div>
+            <div class="project-copy">
+              <span class="project-label">Python Utility</span>
+              <h3>Python Automation Tool</h3>
+              <p>Automates repetitive tasks like file sorting, cleanup, and data processing.</p>
+              <div class="tech-stack">
+                <span>Python</span>
+                <span>Automation</span>
+                <span>Scripts</span>
+              </div>
+              <a class="card-link" href="projects/python-automation-tool.html" target="_blank" rel="noopener">Open Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card glass-card tilt-card" data-reveal>
+            <div class="project-image">
+              <img src="images/project4.jpg" alt="Quiz Website" loading="lazy" decoding="async">
+            </div>
+            <div class="project-copy">
+              <span class="project-label">Education Build</span>
+              <h3>Quiz Website</h3>
+              <p>Interactive quiz platform for Class 9-10 science students with a clean, focused UI.</p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <a class="card-link" href="projects/quiz-website.html" target="_blank" rel="noopener">Open Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card glass-card tilt-card" data-reveal>
+            <div class="project-image">
+              <img src="images/project5.jpg" alt="Weather App" loading="lazy" decoding="async">
+            </div>
+            <div class="project-copy">
+              <span class="project-label">API Dashboard</span>
+              <h3>Weather App</h3>
+              <p>Real-time weather updates using an API with a clean layout and responsive design.</p>
+              <div class="tech-stack">
+                <span>JavaScript</span>
+                <span>API</span>
+                <span>Responsive</span>
+                <span>UI Design</span>
+              </div>
+              <a class="card-link" href="projects/weather-app.html" target="_blank" rel="noopener">Open Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="blogs" class="section" data-section>
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Blogs</span>
+          <h2>Thoughts on coding, growth, and future-ready tech.</h2>
+          <p>Readable articles on AI, learning, and practical coding. Each card opens a full post with a clean reading layout.</p>
+        </div>
+
+        <div class="blogs-grid">
+          <article class="blog-card glass-card tilt-card" data-reveal>
+            <div class="blog-image">
+              <svg viewBox="0 0 400 220" aria-hidden="true">
+                <defs>
+                  <linearGradient id="blogOne" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#42e8ff"></stop>
+                    <stop offset="100%" stop-color="#7b5cff"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" rx="28" fill="#081120"></rect>
+                <path d="M48 160c24-48 64-70 120-66 42 2 82 18 108 44" fill="none" stroke="url(#blogOne)" stroke-width="10" stroke-linecap="round"></path>
+                <path d="M56 110h86" stroke="#b6eeff" stroke-width="14" stroke-linecap="round"></path>
+                <path d="M56 74h126" stroke="#42e8ff" stroke-width="14" stroke-linecap="round"></path>
+                <circle cx="318" cy="90" r="34" fill="none" stroke="#7b5cff" stroke-width="8"></circle>
+              </svg>
+            </div>
+            <div class="blog-copy">
+              <div class="blog-meta-line">
+                <span>AI Workflow</span>
+                <span>7 min read</span>
+              </div>
+              <h3>AI in Web Dev</h3>
+              <p>How AI speeds up development without replacing taste, logic, or real frontend skill.</p>
+              <a class="card-link" href="blogs/ai-in-web-dev.html" target="_blank" rel="noopener">Read Article</a>
+            </div>
+          </article>
+
+          <article class="blog-card glass-card tilt-card" data-reveal>
+            <div class="blog-image">
+              <svg viewBox="0 0 400 220" aria-hidden="true">
+                <defs>
+                  <linearGradient id="blogTwo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#63ffb2"></stop>
+                    <stop offset="100%" stop-color="#41c7ff"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" rx="28" fill="#09131d"></rect>
+                <rect x="52" y="44" width="128" height="132" rx="24" fill="none" stroke="url(#blogTwo)" stroke-width="6"></rect>
+                <path d="M224 72h114" stroke="#63ffb2" stroke-width="14" stroke-linecap="round"></path>
+                <path d="M224 112h92" stroke="#dffef0" stroke-width="14" stroke-linecap="round"></path>
+                <path d="M224 152h78" stroke="#41c7ff" stroke-width="14" stroke-linecap="round"></path>
+                <text x="116" y="122" text-anchor="middle" fill="#eafff6" font-family="Orbitron, sans-serif" font-size="26" font-weight="700">{ }</text>
+              </svg>
+            </div>
+            <div class="blog-copy">
+              <div class="blog-meta-line">
+                <span>Growth Mindset</span>
+                <span>6 min read</span>
+              </div>
+              <h3>Coding for Teens</h3>
+              <p>A practical look at building serious skills early and standing out through consistency.</p>
+              <a class="card-link" href="blogs/coding-for-teens.html" target="_blank" rel="noopener">Read Article</a>
+            </div>
+          </article>
+
+          <article class="blog-card glass-card tilt-card" data-reveal>
+            <div class="blog-image">
+              <svg viewBox="0 0 400 220" aria-hidden="true">
+                <defs>
+                  <linearGradient id="blogThree" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff6fda"></stop>
+                    <stop offset="100%" stop-color="#42e8ff"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" rx="28" fill="#0a1222"></rect>
+                <circle cx="116" cy="104" r="48" fill="none" stroke="url(#blogThree)" stroke-width="8"></circle>
+                <path d="M226 74h108" stroke="#ffd0f6" stroke-width="14" stroke-linecap="round"></path>
+                <path d="M226 114h90" stroke="#42e8ff" stroke-width="14" stroke-linecap="round"></path>
+                <path d="M226 154h124" stroke="#ff6fda" stroke-width="14" stroke-linecap="round" opacity="0.85"></path>
+                <path d="M92 104l18 18 30-38" fill="none" stroke="#ff6fda" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="blog-copy">
+              <div class="blog-meta-line">
+                <span>Python</span>
+                <span>7 min read</span>
+              </div>
+              <h3>Python in 2025</h3>
+              <p>Why Python keeps winning for automation, AI workflows, fast utilities, and practical problem solving.</p>
+              <a class="card-link" href="blogs/python-in-2025.html" target="_blank" rel="noopener">Read Article</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section" data-section>
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Pricing &amp; Policy</span>
+          <h2>Student-friendly pricing with clear professional rules.</h2>
+          <p>The goal is simple: keep things affordable while protecting both the client and the work process.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="services-panel glass-card" data-reveal>
+            <h3>Services</h3>
+            <div class="service-list">
+              <article class="service-card">
+                <div>
+                  <h4>Portfolio Website</h4>
+                  <p>Personal brand sites, modern landing pages, and freelancer portfolios.</p>
+                </div>
+                <strong>From Rs. 2,499</strong>
+              </article>
+              <article class="service-card">
+                <div>
+                  <h4>Business Landing Page</h4>
+                  <p>Clean and responsive pages for creators, small brands, and student startups.</p>
+                </div>
+                <strong>From Rs. 3,999</strong>
+              </article>
+              <article class="service-card">
+                <div>
+                  <h4>Python Automation Setup</h4>
+                  <p>Custom scripts and practical automation for repetitive digital tasks.</p>
+                </div>
+                <strong>From Rs. 4,999</strong>
+              </article>
+            </div>
+            <p class="pricing-note">Final pricing depends on scope, features, timeline, and custom requirements.</p>
+          </div>
+
+          <article class="policy-panel glass-card" data-reveal>
+            <span class="section-tag">Payment Rules</span>
+            <h3>Professional, simple, and transparent.</h3>
+            <ul class="policy-list">
+              <li>Payment is accepted only in Indian Rupees (INR).</li>
+              <li>Available payment methods: cash, UPI, or bank transfer.</li>
+              <li>50% advance payment is required before the project starts.</li>
+              <li>No refund will be provided if the project is canceled after work has started.</li>
+              <li>The remaining payment is due after project completion and final approval.</li>
+            </ul>
+            <p class="policy-note">These terms help keep the workflow smooth, clear, and fair for both sides.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" data-section>
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Contact</span>
+          <h2>Let's turn your idea into something polished.</h2>
+          <p>Direct contact keeps the process simple and fast. Reach out by email or phone and we can discuss scope, timeline, and the right build for your idea.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-panel glass-card" data-reveal>
+            <h3>Work inquiries</h3>
+            <p>If you need a modern portfolio, landing page, or automation system, I'm open to discussing the right build for your goals.</p>
+            <div class="contact-items">
+              <a href="mailto:govindojj.01anselm@gmail.com">govindojj.01anselm@gmail.com</a>
+              <a href="tel:+917004215836">+91 70042 15836</a>
+            </div>
+            <div class="availability-box">
+              <strong>Current focus</strong>
+              <p>Freelance websites, portfolio builds, UI redesigns, and beginner-friendly automation tools.</p>
+            </div>
+          </article>
+
+          <aside class="contact-cta glass-card" data-reveal>
+            <span class="section-tag">Direct Contact</span>
+            <h3>Direct contact works best.</h3>
+            <p>Use the buttons below to reach me instantly. It keeps the workflow clearer and helps project discussions move faster.</p>
+            <div class="contact-action-list">
+              <a class="button button-primary button-full" href="mailto:govindojj.01anselm@gmail.com">Email Me</a>
+              <a class="button button-secondary button-full" href="tel:+917004215836">Call Me</a>
+            </div>
+            <div class="quick-points">
+              <span>Fast response</span>
+              <span>Simple workflow</span>
+              <span>Direct discussion</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta-section">
+      <div class="container">
+        <article class="final-cta glass-card" data-reveal>
+          <div class="final-cta-copy">
+            <span class="section-tag">Final Polish</span>
+            <h2>Ready for GitHub, real visitors, and real client attention.</h2>
+            <p>
+              This portfolio now ships with working demos, full blog articles, direct contact actions, dark-light theme support,
+              and a polished static setup that works well for GitHub Pages.
+            </p>
+          </div>
+          <div class="final-cta-actions">
+            <a class="button button-primary" href="mailto:govindojj.01anselm@gmail.com">Send an Email</a>
+            <a class="button button-secondary" href="#projects">Review Projects</a>
+          </div>
+          <div class="final-cta-points">
+            <span>5 working demos</span>
+            <span>3 full articles</span>
+            <span>GitHub Pages ready</span>
+            <span>Responsive static build</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell glass-card">
+      <p>Govind Ojj | Teen Developer | Web Developer | Python | AI Enthusiast</p>
+      <p>Static portfolio with real project demos, readable blog posts, and direct contact flow.</p>
+      <p>&copy; <span id="year"></span> Govind Ojj. Crafted with code and intent.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
