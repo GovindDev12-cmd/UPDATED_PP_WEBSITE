@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive AI chat UI demo by Govind Ojj.">
+  <title>AI Chat UI | Govind Ojj Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-shell.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="project-nav surface">
+      <a class="brand" href="../index.html">
+        <span class="brand-orb"></span>
+        <span>Govind Ojj</span>
+      </a>
+      <div class="nav-actions">
+        <a class="back-link" href="../index.html">Back to Portfolio</a>
+        <label class="theme-toggle">
+          <input type="checkbox" data-theme-toggle>
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" data-theme-label>Dark mode</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="hero-panel surface">
+      <section class="split-grid">
+        <div>
+          <span class="badge">Working Project 02</span>
+          <h1 class="headline">AI Chat UI Demo</h1>
+          <p class="lead">
+            This project is a local interactive AI chat interface with smooth message flow, quick prompts, and multiple reply styles.
+          </p>
+          <div class="stack">
+            <span>Interactive Messaging</span>
+            <span>Local Reply Logic</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="section-title">How it works</h2>
+          <p class="copy">Type a message or use a quick prompt. The assistant replies instantly using on-page logic, so the demo works without any external AI API.</p>
+          <div class="quick-actions" style="margin-top: 1rem;">
+            <span class="mini-tag">Portfolio</span>
+            <span class="mini-tag">Python</span>
+            <span class="mini-tag">Pricing</span>
+            <span class="mini-tag">Automation</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="section-panel surface" style="margin-top: 1rem;">
+      <div class="two-column">
+        <div class="chat-shell surface">
+          <div>
+            <span class="badge">Live Demo</span>
+            <h2 class="section-title">Chat with the UI</h2>
+          </div>
+          <div id="chat-log" class="chat-log" aria-live="polite">
+            <div class="message assistant">Hi, I am the demo assistant. Ask me about portfolios, Python, AI tools, pricing, or workflow ideas.</div>
+            <div class="message system">Tip: This is a frontend demo with local responses, so it loads fast and works as a showcase project.</div>
+          </div>
+          <div class="quick-actions">
+            <button class="chip" type="button" data-prompt="Tell me about your portfolio style">Portfolio style</button>
+            <button class="chip" type="button" data-prompt="What can you build with Python?">Python ideas</button>
+            <button class="chip" type="button" data-prompt="How do your pricing rules work?">Pricing help</button>
+          </div>
+          <form id="chat-form" class="composer">
+            <input id="chat-input" class="input" type="text" placeholder="Type your message here..." autocomplete="off">
+            <button class="button button-primary" type="submit">Send</button>
+          </form>
+        </div>
+
+        <div class="section-panel surface">
+          <span class="badge">Reply Mode</span>
+          <h2 class="section-title">Choose the response style</h2>
+          <div class="option-list" id="mode-options" style="margin-top: 1rem;">
+            <button class="option-button correct" type="button" data-mode="clear">Clear and short</button>
+            <button class="option-button" type="button" data-mode="mentor">Mentor style</button>
+            <button class="option-button" type="button" data-mode="creative">Creative pitch</button>
+          </div>
+          <p class="copy" style="margin-top: 1rem;">
+            This side panel changes how the assistant answers, which makes the demo feel more product-like and interactive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">Demo project built by Govind Ojj. <span data-year></span></p>
+  </div>
+
+  <script src="project-shell.js"></script>
+  <script>
+    const chatLog = document.getElementById("chat-log");
+    const chatForm = document.getElementById("chat-form");
+    const chatInput = document.getElementById("chat-input");
+    const promptButtons = document.querySelectorAll("[data-prompt]");
+    const modeButtons = document.querySelectorAll("[data-mode]");
+    let currentMode = "clear";
+
+    function addMessage(role, text) {
+      const node = document.createElement("div");
+      node.className = `message ${role}`;
+      node.textContent = text;
+      chatLog.appendChild(node);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      return node;
+    }
+
+    function buildReply(text) {
+      const message = text.toLowerCase();
+      let reply = "I focus on clean frontend builds, polished portfolio websites, and practical tool-making with JavaScript and Python.";
+
+      if (message.includes("portfolio")) {
+        reply = "My portfolio style is futuristic, glassy, and modern, with strong hierarchy so visitors quickly understand the brand and services.";
+      } else if (message.includes("python")) {
+        reply = "Python is great for automation, cleanup scripts, file management, data handling, and tool building for repetitive workflows.";
+      } else if (message.includes("pricing") || message.includes("payment")) {
+        reply = "Projects use clear rules: pricing in INR, 50 percent advance, work begins after confirmation, and the remaining payment comes after completion.";
+      } else if (message.includes("automation")) {
+        reply = "Automation projects help reduce manual work. Good examples are file sorting, backups, renaming tools, report generation, and task pipelines.";
+      } else if (message.includes("hello") || message.includes("hi")) {
+        reply = "Hello. This demo chat UI is built to feel smooth, simple, and product-ready while staying fully local.";
+      }
+
+      if (currentMode === "mentor") {
+        return `${reply} My advice is to build features step by step, test each flow, and keep the interface calm and easy to use.`;
+      }
+
+      if (currentMode === "creative") {
+        return `${reply} The overall vibe should feel sharp, fast, and premium, like a lightweight AI workspace built for modern users.`;
+      }
+
+      return reply;
+    }
+
+    function sendMessage(text) {
+      const trimmed = text.trim();
+
+      if (!trimmed) {
+        return;
+      }
+
+      addMessage("user", trimmed);
+      const thinking = addMessage("assistant", "Thinking...");
+
+      window.setTimeout(() => {
+        thinking.textContent = buildReply(trimmed);
+      }, 420);
+    }
+
+    chatForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      sendMessage(chatInput.value);
+      chatInput.value = "";
+      chatInput.focus();
+    });
+
+    promptButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        sendMessage(button.dataset.prompt);
+      });
+    });
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        currentMode = button.dataset.mode;
+        modeButtons.forEach((node) => node.classList.remove("correct"));
+        button.classList.add("correct");
+      });
+    });
+  </script>
+</body>
+</html>

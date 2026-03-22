@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Python automation generator demo by Govind Ojj.">
+  <title>Python Automation Tool | Govind Ojj Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-shell.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="project-nav surface">
+      <a class="brand" href="../index.html">
+        <span class="brand-orb"></span>
+        <span>Govind Ojj</span>
+      </a>
+      <div class="nav-actions">
+        <a class="back-link" href="../index.html">Back to Portfolio</a>
+        <label class="theme-toggle">
+          <input type="checkbox" data-theme-toggle>
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" data-theme-label>Dark mode</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="hero-panel surface">
+      <section class="split-grid">
+        <div>
+          <span class="badge">Working Project 03</span>
+          <h1 class="headline">Python Automation Tool</h1>
+          <p class="lead">
+            This demo generates ready-to-edit Python automation scripts in the browser. Choose a task, fill the details,
+            and the tool creates a starter script instantly.
+          </p>
+          <div class="stack">
+            <span>Script Generator</span>
+            <span>Automation Planning</span>
+            <span>Copy to Clipboard</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="section-title">Project goal</h2>
+          <p class="copy">Make repetitive tasks easier to plan by turning common workflow ideas into Python starter scripts with zero setup.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="section-panel surface" style="margin-top: 1rem;">
+      <div class="two-column">
+        <form id="automation-form" class="form-grid two-col">
+          <div class="field">
+            <label for="task-type">Automation Type</label>
+            <select id="task-type" class="select">
+              <option value="organize">Organize files by extension</option>
+              <option value="rename">Rename files with a prefix</option>
+              <option value="backup">Create a backup copy</option>
+              <option value="cleanup">Delete empty files</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="folder-path">Folder Path</label>
+            <input id="folder-path" class="input" type="text" value="C:\\Users\\Govind\\Documents\\MyFiles">
+          </div>
+          <div class="field">
+            <label for="extra-value">Extra Value</label>
+            <input id="extra-value" class="input" type="text" value="project_backup">
+          </div>
+          <div class="field">
+            <label for="pattern-value">Pattern</label>
+            <input id="pattern-value" class="input" type="text" value="report">
+          </div>
+          <div class="button-row" style="grid-column: 1 / -1;">
+            <button class="button button-primary" type="submit">Generate Script</button>
+            <button id="copy-script" class="button button-secondary" type="button">Copy Script</button>
+          </div>
+        </form>
+
+        <div class="result-shell surface">
+          <div>
+            <span class="badge">Generated Output</span>
+            <h2 class="section-title">Python starter script</h2>
+          </div>
+          <pre id="script-output" class="code-block"></pre>
+          <div id="status-banner" class="status-banner">Choose a task and generate a script.</div>
+          <div class="terminal">
+            <p class="terminal-line">$ python automation.py</p>
+            <p class="terminal-line" id="terminal-line-1">Preparing automation preview...</p>
+            <p class="terminal-line" id="terminal-line-2">Waiting for task selection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">Demo project built by Govind Ojj. <span data-year></span></p>
+  </div>
+
+  <script src="project-shell.js"></script>
+  <script>
+    const automationForm = document.getElementById("automation-form");
+    const taskTypeInput = document.getElementById("task-type");
+    const folderPathInput = document.getElementById("folder-path");
+    const extraValueInput = document.getElementById("extra-value");
+    const patternValueInput = document.getElementById("pattern-value");
+    const scriptOutput = document.getElementById("script-output");
+    const statusBanner = document.getElementById("status-banner");
+    const terminalLine1 = document.getElementById("terminal-line-1");
+    const terminalLine2 = document.getElementById("terminal-line-2");
+    const copyButton = document.getElementById("copy-script");
+
+    function buildScript() {
+      const taskType = taskTypeInput.value;
+      const folderPath = folderPathInput.value || "C:\\\\Path\\\\To\\\\Folder";
+      const extraValue = extraValueInput.value || "backup_folder";
+      const patternValue = patternValueInput.value || "file";
+
+      let script = "";
+      let message = "";
+      let lineOne = "";
+      let lineTwo = "";
+
+      if (taskType === "organize") {
+        script = `from pathlib import Path
+
+folder = Path(r"${folderPath}")
+
+for file_path in folder.iterdir():
+    if file_path.is_file():
+        extension = file_path.suffix[1:] or "no_extension"
+        target_folder = folder / extension
+        target_folder.mkdir(exist_ok=True)
+        file_path.rename(target_folder / file_path.name)
+
+print("Files organized successfully.")`;
+        message = "This script sorts files into folders based on extension.";
+        lineOne = "Scanning files and grouping by extension.";
+        lineTwo = "Creating folders automatically if needed.";
+      } else if (taskType === "rename") {
+        script = `from pathlib import Path
+
+folder = Path(r"${folderPath}")
+prefix = "${extraValue}"
+
+for index, file_path in enumerate(sorted(folder.iterdir()), start=1):
+    if file_path.is_file():
+        new_name = f"{prefix}_${index:02d}{file_path.suffix}"
+        file_path.rename(folder / new_name)
+
+print("Files renamed successfully.")`;
+        message = "This script renames files in order using a shared prefix.";
+        lineOne = "Sorting files before renaming sequence starts.";
+        lineTwo = "Applying new file names with a predictable pattern.";
+      } else if (taskType === "backup") {
+        script = `from pathlib import Path
+import shutil
+
+source_folder = Path(r"${folderPath}")
+backup_folder = source_folder.parent / "${extraValue}"
+backup_folder.mkdir(exist_ok=True)
+
+for file_path in source_folder.iterdir():
+    if file_path.is_file() and "${patternValue}" in file_path.name:
+        shutil.copy2(file_path, backup_folder / file_path.name)
+
+print("Backup completed.")`;
+        message = "This script copies matching files into a backup folder.";
+        lineOne = "Creating backup folder if it does not exist.";
+        lineTwo = "Copying only files that match your selected pattern.";
+      } else {
+        script = `from pathlib import Path
+
+folder = Path(r"${folderPath}")
+
+for file_path in folder.iterdir():
+    if file_path.is_file() and file_path.stat().st_size == 0:
+        file_path.unlink()
+
+print("Empty files deleted successfully.")`;
+        message = "This script removes empty files from a folder.";
+        lineOne = "Looking for zero-byte files only.";
+        lineTwo = "Deleting empty files while keeping real files safe.";
+      }
+
+      scriptOutput.textContent = script;
+      statusBanner.textContent = message;
+      statusBanner.className = "status-banner success";
+      terminalLine1.textContent = lineOne;
+      terminalLine2.textContent = lineTwo;
+    }
+
+    automationForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      buildScript();
+    });
+
+    copyButton.addEventListener("click", async () => {
+      if (!scriptOutput.textContent.trim()) {
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(scriptOutput.textContent);
+        statusBanner.textContent = "Script copied to clipboard.";
+        statusBanner.className = "status-banner success";
+      } catch (error) {
+        statusBanner.textContent = "Clipboard access failed. You can still copy manually.";
+        statusBanner.className = "status-banner error";
+      }
+    });
+
+    buildScript();
+  </script>
+</body>
+</html>

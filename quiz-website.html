@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive science quiz website by Govind Ojj.">
+  <title>Quiz Website | Govind Ojj Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-shell.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="project-nav surface">
+      <a class="brand" href="../index.html">
+        <span class="brand-orb"></span>
+        <span>Govind Ojj</span>
+      </a>
+      <div class="nav-actions">
+        <a class="back-link" href="../index.html">Back to Portfolio</a>
+        <label class="theme-toggle">
+          <input type="checkbox" data-theme-toggle>
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" data-theme-label>Dark mode</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="hero-panel surface">
+      <section class="split-grid">
+        <div>
+          <span class="badge">Working Project 04</span>
+          <h1 class="headline">Science Quiz Website</h1>
+          <p class="lead">
+            A working quiz app built for Class 9-10 science practice, with instant feedback, score tracking, and restart flow.
+          </p>
+          <div class="stack">
+            <span>Multiple Choice</span>
+            <span>Instant Feedback</span>
+            <span>Score Tracking</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="section-title">Quiz features</h2>
+          <p class="copy">Students can answer questions one by one, see explanations, and restart the full quiz after finishing.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="section-panel surface" style="margin-top: 1rem;">
+      <div class="quiz-layout">
+        <div class="result-shell surface">
+          <span class="badge">Progress</span>
+          <h2 class="section-title">Quiz status</h2>
+          <div class="progress-bar"><span id="quiz-progress"></span></div>
+          <div class="kpi-grid">
+            <article class="metric-card">
+              <strong id="question-count">1 / 5</strong>
+              <span>Question</span>
+            </article>
+            <article class="metric-card">
+              <strong id="score-count">0</strong>
+              <span>Score</span>
+            </article>
+          </div>
+          <div id="quiz-status" class="status-banner">Choose an answer to continue.</div>
+        </div>
+
+        <div class="section-panel surface">
+          <span class="badge">Question</span>
+          <h2 id="quiz-question" class="section-title">Loading question...</h2>
+          <div id="quiz-options" class="option-list" style="margin-top: 1rem;"></div>
+          <p id="quiz-explanation" class="copy" style="margin-top: 1rem;"></p>
+          <div class="button-row" style="margin-top: 1rem;">
+            <button id="next-question" class="button button-primary hidden" type="button">Next Question</button>
+            <button id="restart-quiz" class="button button-secondary hidden" type="button">Restart Quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">Demo project built by Govind Ojj. <span data-year></span></p>
+  </div>
+
+  <script src="project-shell.js"></script>
+  <script>
+    const quizData = [
+      {
+        question: "Which gas is released by plants during photosynthesis?",
+        options: ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+        answer: 2,
+        explanation: "Plants absorb carbon dioxide and release oxygen during photosynthesis."
+      },
+      {
+        question: "What is the SI unit of force?",
+        options: ["Joule", "Pascal", "Newton", "Watt"],
+        answer: 2,
+        explanation: "Force is measured in newtons in the SI system."
+      },
+      {
+        question: "Which part of the cell controls most cell activities?",
+        options: ["Cell wall", "Nucleus", "Cytoplasm", "Ribosome"],
+        answer: 1,
+        explanation: "The nucleus acts like the control center of the cell."
+      },
+      {
+        question: "What is the chemical formula of water?",
+        options: ["CO2", "O2", "H2O", "NaCl"],
+        answer: 2,
+        explanation: "Water is made of two hydrogen atoms and one oxygen atom."
+      },
+      {
+        question: "Which mirror is commonly used in vehicle rear-view mirrors?",
+        options: ["Concave mirror", "Convex mirror", "Plane mirror", "Parabolic mirror"],
+        answer: 1,
+        explanation: "Convex mirrors provide a wider field of view, which is useful in vehicles."
+      }
+    ];
+
+    const progressBar = document.getElementById("quiz-progress");
+    const questionCount = document.getElementById("question-count");
+    const scoreCount = document.getElementById("score-count");
+    const quizStatus = document.getElementById("quiz-status");
+    const quizQuestion = document.getElementById("quiz-question");
+    const quizOptions = document.getElementById("quiz-options");
+    const quizExplanation = document.getElementById("quiz-explanation");
+    const nextQuestionButton = document.getElementById("next-question");
+    const restartQuizButton = document.getElementById("restart-quiz");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let locked = false;
+
+    function renderQuestion() {
+      const currentQuestion = quizData[currentQuestionIndex];
+      const progress = ((currentQuestionIndex) / quizData.length) * 100;
+
+      progressBar.style.width = `${progress}%`;
+      questionCount.textContent = `${currentQuestionIndex + 1} / ${quizData.length}`;
+      scoreCount.textContent = score;
+      quizStatus.textContent = "Choose the best answer.";
+      quizStatus.className = "status-banner";
+      quizQuestion.textContent = currentQuestion.question;
+      quizExplanation.textContent = "";
+      nextQuestionButton.classList.add("hidden");
+      restartQuizButton.classList.add("hidden");
+      locked = false;
+
+      quizOptions.innerHTML = "";
+      currentQuestion.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "option-button";
+        button.type = "button";
+        button.textContent = option;
+        button.addEventListener("click", () => chooseAnswer(index));
+        quizOptions.appendChild(button);
+      });
+    }
+
+    function chooseAnswer(selectedIndex) {
+      if (locked) {
+        return;
+      }
+
+      locked = true;
+      const currentQuestion = quizData[currentQuestionIndex];
+      const optionButtons = quizOptions.querySelectorAll(".option-button");
+
+      optionButtons.forEach((button, index) => {
+        if (index === currentQuestion.answer) {
+          button.classList.add("correct");
+        } else if (index === selectedIndex) {
+          button.classList.add("incorrect");
+        }
+      });
+
+      if (selectedIndex === currentQuestion.answer) {
+        score += 1;
+        scoreCount.textContent = score;
+        quizStatus.textContent = "Correct answer.";
+        quizStatus.className = "status-banner success";
+      } else {
+        quizStatus.textContent = "Not quite. Review the explanation and try the next one.";
+        quizStatus.className = "status-banner error";
+      }
+
+      quizExplanation.textContent = currentQuestion.explanation;
+
+      if (currentQuestionIndex < quizData.length - 1) {
+        nextQuestionButton.classList.remove("hidden");
+      } else {
+        progressBar.style.width = "100%";
+        quizQuestion.textContent = `Quiz completed. Final score: ${score} / ${quizData.length}`;
+        restartQuizButton.classList.remove("hidden");
+      }
+    }
+
+    nextQuestionButton.addEventListener("click", () => {
+      currentQuestionIndex += 1;
+      renderQuestion();
+    });
+
+    restartQuizButton.addEventListener("click", () => {
+      currentQuestionIndex = 0;
+      score = 0;
+      renderQuestion();
+    });
+
+    renderQuestion();
+  </script>
+</body>
+</html>
